@@ -5,16 +5,14 @@
 require 'pry'
 
 class EmailAddressParser
-    attr_accessor :parse
+    attr_accessor :email_address
     def initialize(email_address)
-        splitted = email_address.split(/[,\s]/).delete_if {|char| char.size < 2 }
-        @parse = splitted.uniq
-        
+        @email_address = email_address
     end
 
-
-
-
+    def parse
+       email_address.split(/[,\s]/).delete_if {|char| char.size < 2 }.uniq 
+    end 
 end
 
-binding.pry
+# binding.pry
